@@ -4,15 +4,14 @@
   "description": "A to do list with updation and deletion in real time",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
-    
-
   },
   "author": "vickythakur0398",
   "license": "ISC",
   "dependencies": {
     "-": "0.0.1",
+    "ejs": "^3.1.3",
     "express": "^4.17.1",
     "g": "^2.0.1",
     "nodemon": "^2.0.4"
