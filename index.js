@@ -3,6 +3,12 @@ const express = require(`express`);
 //.5.1  
 const path = require(`path`);
 const port = 8000;
+//....9 so here we are acquiring the mongoose 
+const db = require(`./config/mongoose`);
+//...10 after creating the schema accessing it
+// this Todowhole will be used now for the data base
+const Todowhole = require(`./models/Tododata`);
+
 //getting functionality of express in app
 const app = express();
 
@@ -39,9 +45,9 @@ app.get('/vicky', function(req, res){
 //..7.1 and alll part is actually done after getting psrser
 app.post('/create-to-do', function(req, res){
     // return res.redirect('/')
-    console.log(req.body);
-    console.log(req.body.dates);
-    console.log(req.body.category);
+    // console.log(req.body);
+    // console.log(req.body.dates);
+    // console.log(req.body.category);
     // return;
      //to do later push it in database
      /*nameofdatabse.push{
@@ -50,6 +56,26 @@ app.post('/create-to-do', function(req, res){
          or nameodbase.push(req.body)
      } */
     //  return res.redirect(`back`)
+
+    //now we are pushing our data into the database
+    console.log(req.body)
+    Todowhole.create({
+        
+        data: req.body.data,
+        category: req.body.category,
+        date: req.body.dates,
+        //whenever we create something we havbe to give a function that if the thing which we have created is not provided by the user or database then show error  otherwise access that we are creating a call back function
+    },function(err, newTo){
+        if(err){
+            console.log("error in creating the ToDO!!!!"); 
+            return;
+        }
+        console.log(`******`, newTo);
+        // so if todo is made than just back 
+        return res.redirect(`back`);
+    });
+
+    // return res.redirect(`back`)
 });
 
 
@@ -61,6 +87,11 @@ app.get(`/delete-todo/:data`,function(req, res){
 
 
 })
+
+
+// kya problem h jab isme data dal rha hu to error aa rha leave the mouse h
+
+
 
 
 
