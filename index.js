@@ -91,11 +91,21 @@ app.post('/create-to-do', function(req, res){
 
 //..8 deleting the thing and app.get('/address) is router and function is a controller  
 //here it is a string param description i.e in textarea is going to be come over here
-app.get(`/delete-todo`,function(req, res){
+app.post(`/delete-todo`,function(req, res){
+
+    //to rectify later
+    let id= req.query._id;
+    Todowhole.findByIdAndDelete(id, function(err){
+    if(err){
+        console.log(`error in deleting from the database`);
+        return;
     
+    }
+    return res.redirect(`back`);
 
+    })
 
-})
+});
 
 
 // kya problem h jab isme data dal rha hu to error aa rha leave the mouse h

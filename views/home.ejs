@@ -42,9 +42,9 @@
 
         <form action="/delete-todo" method="POST">
                     <div class="delete">
-                        <a href="/delete-to-do/?data<i.data">
-                        <button type= "submit">DELELTE TASK</button>
-                        </a>
+                    
+                        <button>DELELTE TASK</button>
+                        
 
                     </div>
             
@@ -69,11 +69,11 @@
                
 
                         <li class="lower" >
-                            <input type="checkbox">
+                            <input type="checkbox" name="check" value= "<%= i._id%>">
                             <span class="todo-details">
                                 <span> <%= i.data %></span>
                                 <span> <%= i.category %></span><br>
-                                <p><%= i.dates %></p>
+                                <p><%= i.date%></p>
                             </span>
                         </li>
 
