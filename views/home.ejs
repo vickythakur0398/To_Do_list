@@ -1,8 +1,72 @@
 <html>
     <head>
-        
+        <title>
+            
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/home.css">
     </head>
     <body>
+        <div id = full>
+            <div id = heading>
+                <h1>TO DO WEB APP</h1>
+            </div>
+            
+            <div id= "second">
+            <form action="/create-to-do" method="POST">
+                <h6 id="topper">DESCRIPTION</h6>
+                <textarea id="display" name="data" placeholder=" what to do" required></textarea>
+                 <!-- <input type= "text" id= "description" name = "describe" placeholder="tell me what to do" required> -->
+
+                 <div id = "secondTwo">
+
+
+                    <label for="c">CHOOSE CATEGORY</label>
+                    <select name= "category" id="cats" required>
+                        <option value="school">SCHOOL</option>
+                        <option value="home">HOME</option>
+                        <option value="work">WORKS</option>
+                        <option value="other">OTHERS</option>
+                    </select>
+
+
+
+
+                    <input type ="date" id="date-filled"  name ="dates" required >
+
+                    <div id="addDel">
+                    <button type="submit">ADD TASK</button>
+                    <span>
+                        <a href="/delete-todo/:data">
+                        <button type= "submit">DELELTE TASK</button>
+                    </a>
+
+                    </span>
+
+                    </div>
+
+
+
+
+
+
+                 </div>
+
+                 
+             </form>
+ 
+            </div>
+
+            <div id = third>
+                <h6>all task mentioned</h6>
+
+                    
+
+                    
+                 
+         </div> 
         <h1>rendered from ejs view!!!</h1>
+        <script type="text/javascript" src="/js/home.js"></script>
     </body>
+        
 </html>
