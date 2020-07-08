@@ -13,12 +13,12 @@
             </div>
             
             <div id= "second">
-            <form action="/create-to-do" method="POST">
-                <h6 id="topper">DESCRIPTION</h6>
-                <textarea id="display" name="data" placeholder=" what to do" required></textarea>
+                <form action="/create-to-do" method="POST">
+                    <h6 id="topper">DESCRIPTION</h6>
+                    <textarea id="display" name="data" placeholder=" what to do" required></textarea>
                  <!-- <input type= "text" id= "description" name = "describe" placeholder="tell me what to do" required> -->
 
-                 <div id = "secondTwo">
+                    <div id = "secondTwo">
 
 
                     <label for="c">CHOOSE CATEGORY</label>
@@ -29,44 +29,65 @@
                         <option value="other">OTHERS</option>
                     </select>
 
-
+                
 
 
                     <input type ="date" id="date-filled"  name ="dates" required >
 
                     <div id="addDel">
-                    <button type="submit">ADD TASK</button>
+                        <button type="submit">ADD TASK</button>
+                    </div>
+            </div>
                 </form>
-                    <span>
-                        <a href="#">
-                        <button type= "submit">DELELTE TASK</button>
-                    </a>
 
-                    </span>
+        <form action="/delete-todo" method="POST">
+                    <div class="delete">
+                        <a href="/delete-to-do/?data<i.data">
+                        <button type= "submit">DELELTE TASK</button>
+                        </a>
 
                     </div>
+            
+                    
 
 
 
 
 
 
-                 </div>
+            
 
                  
              
  
+            
+
+            <div id = "all-todo">
+                <ul style="list-style-type: none;">
+                    <% for(let i of all) { %>
+                    <!-- here i have to fetch the id?? i am not able to grasp what you are telling  -->
+               
+
+                        <li class="lower" >
+                            <input type="checkbox">
+                            <span class="todo-details">
+                                <span> <%= i.data %></span>
+                                <span> <%= i.category %></span><br>
+                                <p><%= i.dates %></p>
+                            </span>
+                        </li>
+
+
+                  <%  } %>
+                </ul>
             </div>
 
-            <div id = third>
-                <h6>all task mentioned</h6>
-
                     
-
+         </form>
                     
                  
-         </div> 
-        <h1>rendered from ejs view!!!</h1>
+        </div> 
+        
         <script type="text/javascript" src="/js/home.js"></script>
     </body>
         

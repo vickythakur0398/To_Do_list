@@ -31,9 +31,19 @@ app.get('/', function(req, res){
     
     // res.send('<h1>okk it is this now instead of cannnot get</h1>')
     //setting up title from here and then update that in home
-    res.render('home',
-     {title: "To DO List"
+    //fetching from the database
+    Todowhole.find({},function(err, details){
+        if(err){
+            console.log(`error in fetching the contacts from database`)
+            return;
+        }
+        return res.render('home',
+            {title: "To DO List",
+             all: details
+            });
+
     });
+    
 });
 //..6 here i am rendering from the views home.ejs and for that we always have to return as we are rendering from views otherwise it will keep finding the other statement and try to execute it so if there is next statement this will make hard
 app.get('/vicky', function(req, res){
@@ -58,7 +68,7 @@ app.post('/create-to-do', function(req, res){
     //  return res.redirect(`back`)
 
     //now we are pushing our data into the database
-    console.log(req.body)
+    // console.log(req.body)
     Todowhole.create({
         
         data: req.body.data,
@@ -81,9 +91,8 @@ app.post('/create-to-do', function(req, res){
 
 //..8 deleting the thing and app.get('/address) is router and function is a controller  
 //here it is a string param description i.e in textarea is going to be come over here
-app.get(`/delete-todo/:data`,function(req, res){
-    console.log(req.params);
-    let data= req.params.data;
+app.get(`/delete-todo`,function(req, res){
+    
 
 
 })
